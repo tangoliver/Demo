@@ -8,13 +8,20 @@ include ./config/TOOL.mak
 include ./config/PATH.mak
 include ./config/BUILD.mak
 
-
 #######################################################################
-#all modules build 
+#enviroment
 #######################################################################
 .PHONY: all $(BUILD_DIRS) clean
 
-all: app lib
+env:
+	mkdir -p $(PJ_INC_DIR)
+	mkdir -p $(PJ_BIN_DIR)
+	mkdir -p $(PJ_LIB_DIR)
+	
+#######################################################################
+#all modules build 
+#######################################################################
+all: env lib app 
 
 all_clean: app_clean lib_clean
 
@@ -33,9 +40,9 @@ coroutine_clean:
 #######################################################################
 #lib modules build 
 #######################################################################
-lib: liblog libco
+lib: libco
 
-lib_clean: libco_clean liblog_clean
+lib_clean: libco_clean
 
 liblog: 
 	@$(MAKE) --directory=$(BUILD_LIB_LOG_DIR)

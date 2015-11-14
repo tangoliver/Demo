@@ -45,10 +45,12 @@ endif
 main: 
 	@echo "\n"
 	@echo "Generate libs ..."
+	mkdir -p $(MOD_LIB_DIR)
 	cp -rf $(MOD_SRC_DIR)/lib/$(MOD_BUILD_NAME).a $(MOD_LIB_DIR)/$(MOD_BUILD_NAME).a
 	cp -rf $(MOD_SRC_DIR)/solib/$(MOD_BUILD_NAME).so $(MOD_LIB_DIR)/$(MOD_BUILD_NAME).so
 	
 	@echo "Generate headers ..."
+	mkdir -p $(MOD_INC_DIR)
 	cp -rf $(MOD_SRC_DIR)/co_routine.h $(MOD_INC_DIR)/co_routine.h 
 	
 	@echo "Deploy libs and headers ..."
@@ -71,5 +73,6 @@ clean: check
 
 	-rm $(PJ_LIB_DIR)/$(MOD_LIB_NAME)
 	-rm $(INC_PATH_LIBCO)/*
+	-rm $(MOD_OBJ_DIR)/*
 	-rm $(MOD_LIB_DIR)/*
 	-rm $(MOD_INC_DIR)/*

@@ -45,6 +45,7 @@ endif
 main:
 	@echo "\n"
 	@echo "Generate bin ..."
+	mkdir -p $(MOD_BIN_DIR)
 	$(CXX) -o $(MOD_BIN_DIR)/$(MOD_BIN_NAME) $(MOD_OBJ_DIR)/*.o  $(LIBFLAGS)
 	$(STRIP) $(MOD_BIN_DIR)/$(MOD_BIN_NAME)
 	
@@ -65,3 +66,4 @@ clean: check
 
 	-rm $(PJ_BIN_DIR)/$(MOD_BIN_NAME)
 	-rm $(MOD_BIN_DIR)/*
+	-rm $(MOD_OBJ_DIR)/*

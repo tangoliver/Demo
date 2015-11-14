@@ -6,6 +6,7 @@ OBJS:=$(patsubst %.cpp,$(MOD_OBJ_DIR)/%.o,$(wildcard *.cpp))
 all: check $(OBJS)
 
 check:
+	mkdir -p $(MOD_OBJ_DIR)
 	chmod 777 -R $(MOD_DIR)
 
 $(MOD_OBJ_DIR)/%.o : %.cpp
