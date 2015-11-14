@@ -28,15 +28,20 @@ all_clean: app_clean lib_clean
 #######################################################################
 #app modules build 
 #######################################################################
-app: coroutine
+app: coroutine calc
 
-app_clean: coroutine_clean
+app_clean: calc_clean coroutine_clean
 
 coroutine: 
 	@$(MAKE) --directory=$(BUILD_BIN_COROUTINE_DIR)
 coroutine_clean:
 	@$(MAKE) --directory=$(BUILD_BIN_COROUTINE_DIR) clean
 
+calc:
+	@$(MAKE) --directory=$(BUILD_BIN_CACL_DIR)
+calc_clean:
+	@$(MAKE) --directory=$(BUILD_BIN_CACL_DIR) clean
+	
 #######################################################################
 #lib modules build 
 #######################################################################
